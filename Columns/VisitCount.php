@@ -87,9 +87,11 @@ class VisitCount extends VisitDimension
     public function onNewVisit(Request $request, Visitor $visitor, $action)
     {
 
+        $idsite = $visitor->getVisitorColumn('idsite');
         $idvisitor = $visitor->getVisitorColumn('idvisitor');
-        $idvisitor = base_convert(bin2hex($idvisitor), 16, 10);
-        $r = new AsyncRequest($this->new_visit_url, array(), array("idvisitor"=>$idvisitor), 'post');
+        //$idvisitor = base_convert(bin2hex($idvisitor), 16, 10);
+        $idvisitor = bin2hex($idvisitor);
+        $r = new AsyncRequest($this->new_visit_url, array(), array("idvisitor"=>$idvisitor, 'idsite'=>$idsite ), 'post');
         $r->start();
 
         if (empty($action)) {
@@ -117,9 +119,11 @@ class VisitCount extends VisitDimension
     public function onExistingVisit(Request $request, Visitor $visitor, $action)
     {
 
+        $idsite = $visitor->getVisitorColumn('idsite');
         $idvisitor = $visitor->getVisitorColumn('idvisitor');
-        $idvisitor = base_convert(bin2hex($idvisitor), 16, 10);
-        $r = new AsyncRequest($this->existing_visit_url, array(), array("idvisitor"=>$idvisitor), 'post');
+        //$idvisitor = base_convert(bin2hex($idvisitor), 16, 10);
+        $idvisitor = bin2hex($idvisitor);
+        $r = new AsyncRequest($this->existing_visit_url, array(), array("idvisitor"=>$idvisitor, 'idsite'=>$idsite ), 'post');
         $r->start();
 
         if (empty($action)) {

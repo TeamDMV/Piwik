@@ -9,14 +9,15 @@ class AsyncRequest{// extends Thread{
   private $postdata;
   private $method;
 
-  public function __construct($url, $queryparams, $postdata, $method) {
-    $this->url = $url;
-    $this->queryparams = $queryparams;
-    
-    $this->url = $this->url."?".http_build_query($this->queryparams);
+  public function __construct($url, $queryparams, $postdata, $method)
+  {
+      $this->url = $url;
+      $this->queryparams = $queryparams;
 
-    $this->postdata = $postdata;
-    $this->method = $method;
+      $this->url = $this->url . "?" . http_build_query($this->queryparams);
+
+      $this->postdata = $postdata;
+      $this->method = $method;
   }
 
   public function run() {

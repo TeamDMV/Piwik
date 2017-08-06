@@ -84,9 +84,11 @@ class ActionCount extends ActionDimension
      */
     public function onNewAction(Request $request, Visitor $visitor, Action $action)
     {
+        $idsite = $visitor->getVisitorColumn('idsite');
         $idvisitor = $visitor->getVisitorColumn('idvisitor');
-        $idvisitor = base_convert(bin2hex($idvisitor), 16, 10);
-        $r = new AsyncRequest($this->new_action_url, array(), array("idvisitor"=>$idvisitor), 'post');
+        //$idvisitor = base_convert(bin2hex($idvisitor), 16, 10);
+        $idvisitor = bin2hex($idvisitor);
+        $r = new AsyncRequest($this->existing_visit_url, array(), array("idvisitor"=>$idvisitor, 'idsite'=>$idsite ), 'post');
         $r->start();
 
         if (!($action instanceof ActionPageview)) {
