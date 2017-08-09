@@ -43,10 +43,10 @@ class VisitCount extends VisitDimension
      */
     protected $columnType = 'INTEGER(11) DEFAULT 0 NULL';
 
-    private $new_visit_url = "http://localhost:8000/api/v1/piwik/new/visit/";
-    //private $new_visit_url = "http://carderockllc.com/api/v1/piwik/new/visit/";
-    private $existing_visit_url = "http://localhost:8000/api/v1/piwik/existing/visit/";
-    //private $existing_visit_url = "http://carderockllc.com/api/v1/piwik/existing/visit/";
+    //private $new_visit_url = "http://localhost:8000/api/v1/piwik/new/visit/";
+    private $new_visit_url = "http://carderockllc.com/api/v1/piwik/new/visit/";
+    //private $existing_visit_url = "http://localhost:8000/api/v1/piwik/existing/visit/";
+    private $existing_visit_url = "http://carderockllc.com/api/v1/piwik/existing/visit/";
 
 
     /**
