@@ -36,7 +36,7 @@ class ActionCount extends ActionDimension
     protected $columnName = 'action_count';
     
     //private $new_action_url = "http://localhost:8000/api/v1/piwik/new/action/";
-    private $new_action_url = "http://carderockllc.com/api/v1/piwik/new/action/";
+    private $new_action_url = "http://api.inspirvator.net/api/v1/piwik/new/action/";
 
 
     /**
